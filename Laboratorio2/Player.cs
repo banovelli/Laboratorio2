@@ -36,7 +36,7 @@ namespace Laboratorio2
             hitPoints -= random.Next(1, maxDamage);
         }
 
-        public void Increasehealth(int health, Random random)
+        public void IncreaseHealth(int health, Random random)
         {
             hitPoints += random.Next(1, health);
         }

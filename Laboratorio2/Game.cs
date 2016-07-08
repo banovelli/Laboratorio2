@@ -23,15 +23,15 @@ namespace Laboratorio2
         public Game(Rectangle bounderies)
         {
             this.bounderies = bounderies;//caixa que envolve a masmorra
-            player = new player(this,
+            player = new Player(this,
                 new Point(bounderies.Left + 10, bounderies.Top + 70), bounderies);
         }
 
-        public void Move(Direction direction, Random random)
+        public void Move(Mover.Direction direction, Random random)
         {
             player.Move(direction);
             foreach(Enemy enemy in Enemies)
-                enemy.move(random);
+                enemy.Move(random);
         }
 
         public void Equip(string weaponName)
@@ -41,7 +41,7 @@ namespace Laboratorio2
 
         public bool CheckPlayerInventory(string weaponName)
         {
-            return player.Weapons.Contais(weaponName);
+            return player.Weapons.Contains(weaponName);
         }
 
         public void HitPlayer(int maxDamage, Random random)
@@ -54,18 +54,18 @@ namespace Laboratorio2
             player.IncreaseHealth(health, random);
         }
 
-        public void Attack(Direction direction, Random random)
+        public void Attack(Mover.Direction direction, Random random)
         {
             player.Attack(direction, random);
             foreach (Enemy enemy in Enemies)
-                enemy.move(random);
+                enemy.Move(random);
         }
 
         private Point GetRandomLocation(Random random)
         {
             return new Point (bounderies.Left +
                 random.Next(bounderies.Right/10 - bounderies.Left/10) * 10,
-                random.Next(bounderies.Bottom/10 - bounderies.Top/10)*10;
+                random.Next(bounderies.Bottom/10 - bounderies.Top/10)*10);
         }
 
         public void NewLevel(Random random)
