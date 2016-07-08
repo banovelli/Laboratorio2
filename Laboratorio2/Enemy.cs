@@ -11,7 +11,7 @@ namespace Laboratorio2
     {
         private const int NearPlayerDistance = 25;
         private int hitPoints;
-        public int HitPoints { get { return hitPoitns; } }
+        public int HitPoints { get { return hitPoints; } }
         public bool Dead
         {
             get
