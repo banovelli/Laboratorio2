@@ -40,52 +40,71 @@ namespace Laboratorio2
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        private void resetButtons(){
+            ataqueAcima.Text = "Acima";
+            ataqueDireita.Enabled = true;
+            ataqueEsquerda.Enabled = true;
+            ataqueAbaixo.Enabled = true;
+        }
+        private void lockButtons()
+        {
+            ataqueAcima.Text = "Beber";
+            ataqueDireita.Enabled = false;
+            ataqueEsquerda.Enabled = false;
+            ataqueAbaixo.Enabled = false;
+        }
         private void bagSword_Click(object sender, EventArgs e)
         {
-            //ChekPlayerInventory() -- resolvi controlart pelo enable... quando pegar mudar para true
-                //game.Equip
-                //borderstyle --> single e remove dos outros
-
-            //habilitar os outros 3 botoes e mudar beber para "Acima"
+            resetButtons();
+            if (game.CheckPlayerInventory("Sword"))
+            {
+                game.Equip("Sword");
+                BorderWeaponSelected();
+            }
         }
 
         private void bagRedPotion_Click(object sender, EventArgs e)
         {
-            //ChekPlayerInventory() -- resolvi controlart pelo enable... quando pegar mudar para true
-            //game.Equip
-            //borderstyle --> single e remove dos outros
-
-            // se for uma opçcao deixar so o acima habilitado e com o texto de "Beber"
+            resetButtons();
+            if (game.CheckPlayerInventory("RedPotion"))
+            {
+                game.Equip("RedPotion");
+                BorderWeaponSelected();
+                lockButtons();
+            }
 
         }
 
         private void bagBow_Click(object sender, EventArgs e)
         {
-            //ChekPlayerInventory() -- resolvi controlart pelo enable... quando pegar mudar para true
-            //game.Equip
-            //borderstyle --> single e remove dos outros
-
-            //habilitar os outros 3 botoes e mudar beber para "Acima"
+            resetButtons();
+            if (game.CheckPlayerInventory("Bow"))
+            {
+                game.Equip("Bow");
+                BorderWeaponSelected();
+            }
         }
 
         private void bagBluePotion_Click(object sender, EventArgs e)
         {
-            //ChekPlayerInventory() -- resolvi controlart pelo enable... quando pegar mudar para true
-            //game.Equip
-            //borderstyle --> single e remove dos outros
-
-            // se for uma opçcao deixar so o acima habilitado e com o texto de "Beber"
-
+            resetButtons();
+            if (game.CheckPlayerInventory("BluePotion"))
+            {
+                game.Equip("BluePotion");
+                BorderWeaponSelected();
+                lockButtons();
+            }
         }
 
         private void bagMace_Click(object sender, EventArgs e)
         {
-            //ChekPlayerInventory() -- resolvi controlart pelo enable... quando pegar mudar para true
-            //game.Equip
-            //borderstyle --> single e remove dos outros
-
-            //habilitar os outros 3 botoes e mudar beber para "Acima"
-
+            resetButtons();
+            if (game.CheckPlayerInventory("Mace"))
+            {
+                game.Equip("Mace");
+                BorderWeaponSelected();
+            }
         }
 
 
@@ -97,7 +116,7 @@ namespace Laboratorio2
         private void moveAcima_Click(object sender, EventArgs e)
         {
              game.Move(Mover.Direction.Up, random);
-             UpdateCharacteres();
+             UpdateCharacteres();             
         }
 
         private void moveDireita_Click(object sender, EventArgs e)
@@ -132,6 +151,7 @@ namespace Laboratorio2
         {
             game.Attack(Mover.Direction.Up, random);
             UpdateCharacteres();
+            resetButtons();
         }
 
         private void ataqueDireita_Click(object sender, EventArgs e)
@@ -262,11 +282,29 @@ namespace Laboratorio2
             if (game.CheckPlayerInventory("BluePotion"))
                 bagBluePotion.Visible = true;
 
-
+            BorderWeaponSelected();
 
             weaponControl.Location = game.WeaponInRoom.Location;
             weaponControl.Visible = (game.WeaponInRoom.PickedUp) ? false : true;
 
+            
+
+            if (game.PlayerHitPoints <= 0)
+            {
+                MessageBox.Show("Você morreu!", "Ha ha");
+                Application.Exit();
+            }
+            if (enemiesShown < 1)
+            {
+                MessageBox.Show("Você derrotou todos os inimigos desse nível", "Continue assim.");
+                game.NewLevel(random);
+                UpdateCharacteres();
+            }
+
+        }
+
+        private void BorderWeaponSelected()
+        {
             if (game.WeaponEquiped != null)
             {
                 bagSword.BorderStyle = BorderStyle.None;
@@ -293,21 +331,8 @@ namespace Laboratorio2
                         break;
                     default:
                         break;
-                }                
+                }
             }
-
-            if (game.PlayerHitPoints <= 0)
-            {
-                MessageBox.Show("Você morreu!", "Ha ha");
-                Application.Exit();
-            }
-            if (enemiesShown < 1)
-            {
-                MessageBox.Show("Você derrotou todos os inimigos desse nível", "Continue assim.");
-                game.NewLevel(random);
-                UpdateCharacteres();
-            }
-
         }
 
 

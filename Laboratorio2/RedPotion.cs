@@ -17,7 +17,8 @@ namespace Laboratorio2
         public override void Attack(Direction direction, Random random)
         {
             // aumenta saude em 10
-            game.IncreasePlayerHealth(10);
+            if(!used)
+                game.IncreasePlayerHealth(10);
             // marca ele como usada
             used = true;
         }
