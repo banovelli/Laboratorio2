@@ -15,6 +15,16 @@ namespace Laboratorio2
         private Game game;
         private Random random = new Random();
 
+        public Form1()
+        {
+            InitializeComponent();
+
+            game = new Game(new Rectangle(78, 57, 420, 155));
+            game.NewLevel(random);
+            UpdateCharacteres();
+            
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             game = new Game(new Rectangle(78, 57, 420, 155));
@@ -22,10 +32,7 @@ namespace Laboratorio2
             UpdateCharacteres();
         }
 
-        public Form1()
-        {
-            InitializeComponent();
-        }
+       
 
 
         /// <summary>
@@ -89,26 +96,26 @@ namespace Laboratorio2
         /// <param name="e"></param>
         private void moveAcima_Click(object sender, EventArgs e)
         {
-            //chama game.move
-            //updateCharacteres;
+             game.Move(Mover.Direction.Up, random);
+             UpdateCharacteres();
         }
 
         private void moveDireita_Click(object sender, EventArgs e)
         {
-            //chama game.move
-            //updateCharacteres;
+            game.Move(Mover.Direction.Right, random);
+            UpdateCharacteres();
         }
 
         private void moveEsquerda_Click(object sender, EventArgs e)
         {
-            //chama game.move
-            //updateCharacteres;
+            game.Move(Mover.Direction.Left, random);
+            UpdateCharacteres();
         }
 
         private void moveAbaixo_Click(object sender, EventArgs e)
         {
-            //chama game.move
-            //updateCharacteres;
+            game.Move(Mover.Direction.Down, random);
+            UpdateCharacteres();
         }
 
 
@@ -123,26 +130,26 @@ namespace Laboratorio2
         
         private void ataqueAcima_Click(object sender, EventArgs e)
         {
-            //game.ataque
-            //updateCharacteres;
+            game.Attack(Mover.Direction.Up, random);
+            UpdateCharacteres();
         }
 
         private void ataqueDireita_Click(object sender, EventArgs e)
         {
-            //game.ataque
-            //updateCharacteres;
+            game.Attack(Mover.Direction.Right, random);
+            UpdateCharacteres();
         }
 
         private void ataqueEsquerda_Click(object sender, EventArgs e)
         {
-            //game.ataque
-            //updateCharacteres;
+            game.Attack(Mover.Direction.Left, random);
+            UpdateCharacteres();
         }
 
         private void ataqueAbaixo_Click(object sender, EventArgs e)
         {
-            //game.ataque
-            //updateCharacteres;
+            game.Attack(Mover.Direction.Down, random);
+            UpdateCharacteres();
         }
 
 
@@ -234,26 +241,55 @@ namespace Laboratorio2
 
 
 
-            bagSword.Enabled = false;
-            bagBow.Enabled = false;
-            bagRedPotion.Enabled = false;
-            bagBluePotion.Enabled = false;
-            bagMace.Enabled = false;
+            bagSword.Visible = false;
+            bagBow.Visible = false;
+            bagRedPotion.Visible = false;
+            bagBluePotion.Visible = false;
+            bagMace.Visible = false;
             if(game.CheckPlayerInventory("Sword"))
-                bagSword.Enabled = true;
+                bagSword.Visible = true;
             if (game.CheckPlayerInventory("Bow"))
-                bagBow.Enabled = true;
+                bagBow.Visible = true;
             if (game.CheckPlayerInventory("Mace"))
-                bagMace.Enabled = true;
+                bagMace.Visible = true;
             if (game.CheckPlayerInventory("RedPotion"))
-                bagRedPotion.Enabled = true;
+                bagRedPotion.Visible = true;
             if (game.CheckPlayerInventory("BluePotion"))
-                bagBluePotion.Enabled = true;
+                bagBluePotion.Visible = true;
 
 
 
             weaponControl.Location = game.WeaponInRoom.Location;
             weaponControl.Visible = (game.WeaponInRoom.PickedUp) ? false : true;
+
+            if (game.WeaponEquiped != null)
+            {
+                bagSword.BorderStyle = BorderStyle.None;
+                bagBow.BorderStyle = BorderStyle.None;
+                bagMace.BorderStyle = BorderStyle.None;
+                bagRedPotion.BorderStyle = BorderStyle.None;
+                bagBluePotion.BorderStyle = BorderStyle.None;
+                switch (game.WeaponEquiped)
+                {
+                    case "Sword":
+                        bagSword.BorderStyle = BorderStyle.FixedSingle;
+                        break;
+                    case "Bow":
+                        bagBow.BorderStyle = BorderStyle.FixedSingle;
+                        break;
+                    case "Mace":
+                        bagMace.BorderStyle = BorderStyle.FixedSingle;
+                        break;
+                    case "RedPotion":
+                        bagRedPotion.BorderStyle = BorderStyle.FixedSingle;
+                        break;
+                    case "BluePotion":
+                        bagBluePotion.BorderStyle = BorderStyle.FixedSingle;
+                        break;
+                    default:
+                        break;
+                }                
+            }
 
             if (game.PlayerHitPoints <= 0)
             {

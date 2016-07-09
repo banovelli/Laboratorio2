@@ -12,12 +12,16 @@ namespace Laboratorio2
         public RedPotion(Game game, Point location)
         : base(game,location){ }
 
-        public string Name { get { return "Red potion"; } }
+        public override string Name { get { return "Red potion"; } }
 
         public override void Attack(Direction direction, Random random)
         {
             // aumenta saude em 10
+            game.IncreasePlayerHealth(10);
             // marca ele como usada
+            used = true;
         }
+        private bool used = false;
+        public bool Used { get { return used; } }
     }
 }

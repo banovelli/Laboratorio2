@@ -10,6 +10,7 @@ namespace Laboratorio2
     public class Player: Mover
     {
         private Weapon equippedWeapon;
+        public string EquippedWeapon { get { return (equippedWeapon != null ? equippedWeapon.Name : null); } }
         private int hitPoints;
         public int HitPoints { get { return hitPoints; } }
         private List<Weapon> inventory = new List<Weapon>();
@@ -36,9 +37,9 @@ namespace Laboratorio2
             hitPoints -= random.Next(1, maxDamage);
         }
 
-        public void IncreaseHealth(int health, Random random)
+        public void IncreaseHealth(int health)
         {
-            hitPoints += random.Next(1, health);
+            hitPoints += health;
         }
 
         public void Equip(string weaponName)
@@ -58,12 +59,29 @@ namespace Laboratorio2
                 //verifica se tem uma weapon por perto e se possivel pega ela
                 //se waepon no raio de 1 pode ser pega
 
+                if (game.WeaponInRoom.Nearby(location, 20))
+                {
+                    game.WeaponInRoom.PickUpWeapon();
+                    inventory.Add(game.WeaponInRoom);
+                    if (equippedWeapon == null)
+                        Equip(game.WeaponInRoom.Name);
+                }
+
                 //se o jogador nao tiver nehuma arma, ja prepara ela para ser usada na proxima rodada
             }
         }
 
         public void Attack(Direction direction, Random random)
         {
+            if (equippedWeapon != null)
+            {
+                equippedWeapon.Attack(direction, random);
+                if (equippedWeapon is IPotion)
+                {
+                    inventory.Remove(equippedWeapon);
+                }
+            }
+
             //verifica qual arma esta euipada e chama o atack daquela arma
             //se nao tiver arma preparada nao faz nada
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Laboratorio2
 {
-    public class Enemy: Mover
+    public abstract class Enemy: Mover
     {
         private const int NearPlayerDistance = 25;
         private int hitPoints;

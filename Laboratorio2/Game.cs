@@ -19,6 +19,7 @@ namespace Laboratorio2
         public int Level { get { return level; } }
         private Rectangle bounderies;
         public Rectangle Bounderies { get { return bounderies; } }
+        public string WeaponEquiped { get { return player.EquippedWeapon;}}
 
         public Game(Rectangle bounderies)
         {
@@ -39,6 +40,8 @@ namespace Laboratorio2
             player.Equip(weaponName);
         }
 
+     
+
         public bool CheckPlayerInventory(string weaponName)
         {
             return player.Weapons.Contains(weaponName);
@@ -49,9 +52,9 @@ namespace Laboratorio2
             player.Hit(maxDamage, random);
         }
 
-        public void IncreasePlayerHealth(int health, Random random)
+        public void IncreasePlayerHealth(int health)
         {
-            player.IncreaseHealth(health, random);
+            player.IncreaseHealth(health);
         }
 
         public void Attack(Mover.Direction direction, Random random)
@@ -83,6 +86,40 @@ namespace Laboratorio2
                     Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
                     WeaponInRoom = new Sword(this, GetRandomLocation(random));
                     break;
+                case 3:
+                    Enemies = new List<Enemy>();
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
+                    WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    break;
+
+                case 4:
+                    Enemies = new List<Enemy>();
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
+                    WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    break;
+
+                case 5:
+                    Enemies = new List<Enemy>();
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
+                    WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    break;
+
+                case 6:
+                    Enemies = new List<Enemy>();
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
+                    WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    break;
+
+                case 7:
+                    Enemies = new List<Enemy>();
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
+                    WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    break;
+
+                case 8:
+                    Enemies = new List<Enemy>();
+                    break;
+
             }
             //2 fantasma poção azul, sword
             //3 zumbi arco

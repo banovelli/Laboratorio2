@@ -13,9 +13,6 @@ namespace Laboratorio2
         private bool pickedup;
         public bool PickedUp{get{return pickedup;}}
 
-        private Point location;
-        public Point Location { get { return location; } }
-
         public Weapon(Game game, Point location)
             : base(game, location)
         {

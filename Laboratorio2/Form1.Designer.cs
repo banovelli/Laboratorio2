@@ -61,6 +61,7 @@
             this.ataqueEsquerda = new System.Windows.Forms.Button();
             this.ataqueDireita = new System.Windows.Forms.Button();
             this.ataqueAcima = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picJogador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSword)).BeginInit();
@@ -107,7 +108,6 @@
             this.vidaZumbi.Name = "vidaZumbi";
             this.vidaZumbi.Size = new System.Drawing.Size(88, 23);
             this.vidaZumbi.TabIndex = 7;
-            this.vidaZumbi.Text = "vidaZumbi";
             this.vidaZumbi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // vidaFantasma
@@ -116,7 +116,6 @@
             this.vidaFantasma.Name = "vidaFantasma";
             this.vidaFantasma.Size = new System.Drawing.Size(90, 23);
             this.vidaFantasma.TabIndex = 6;
-            this.vidaFantasma.Text = "vidaFantasma";
             this.vidaFantasma.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // vidaMorcego
@@ -125,7 +124,6 @@
             this.vidaMorcego.Name = "vidaMorcego";
             this.vidaMorcego.Size = new System.Drawing.Size(90, 23);
             this.vidaMorcego.TabIndex = 5;
-            this.vidaMorcego.Text = "vidaMorcego";
             this.vidaMorcego.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // vidaJogador
@@ -134,7 +132,6 @@
             this.vidaJogador.Name = "vidaJogador";
             this.vidaJogador.Size = new System.Drawing.Size(90, 23);
             this.vidaJogador.TabIndex = 4;
-            this.vidaJogador.Text = "vidaJogador";
             this.vidaJogador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -283,7 +280,7 @@
             // bagSword
             // 
             this.bagSword.BackColor = System.Drawing.Color.Transparent;
-            this.bagSword.Enabled = false;
+            this.bagSword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bagSword.Image = global::Laboratorio2.Properties.Resources.sword;
             this.bagSword.Location = new System.Drawing.Point(80, 325);
             this.bagSword.Name = "bagSword";
@@ -291,12 +288,12 @@
             this.bagSword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bagSword.TabIndex = 10;
             this.bagSword.TabStop = false;
+            this.bagSword.Visible = false;
             this.bagSword.Click += new System.EventHandler(this.bagSword_Click);
             // 
             // bagBluePotion
             // 
             this.bagBluePotion.BackColor = System.Drawing.Color.Transparent;
-            this.bagBluePotion.Enabled = false;
             this.bagBluePotion.Image = global::Laboratorio2.Properties.Resources.potion_blue;
             this.bagBluePotion.Location = new System.Drawing.Point(248, 325);
             this.bagBluePotion.Name = "bagBluePotion";
@@ -304,12 +301,12 @@
             this.bagBluePotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bagBluePotion.TabIndex = 13;
             this.bagBluePotion.TabStop = false;
+            this.bagBluePotion.Visible = false;
             this.bagBluePotion.Click += new System.EventHandler(this.bagBluePotion_Click);
             // 
             // bagRedPotion
             // 
             this.bagRedPotion.BackColor = System.Drawing.Color.Transparent;
-            this.bagRedPotion.Enabled = false;
             this.bagRedPotion.Image = global::Laboratorio2.Properties.Resources.potion_red;
             this.bagRedPotion.Location = new System.Drawing.Point(136, 325);
             this.bagRedPotion.Name = "bagRedPotion";
@@ -317,12 +314,12 @@
             this.bagRedPotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bagRedPotion.TabIndex = 12;
             this.bagRedPotion.TabStop = false;
+            this.bagRedPotion.Visible = false;
             this.bagRedPotion.Click += new System.EventHandler(this.bagRedPotion_Click);
             // 
             // bagMace
             // 
             this.bagMace.BackColor = System.Drawing.Color.Transparent;
-            this.bagMace.Enabled = false;
             this.bagMace.Image = global::Laboratorio2.Properties.Resources.mace;
             this.bagMace.Location = new System.Drawing.Point(304, 325);
             this.bagMace.Name = "bagMace";
@@ -330,12 +327,12 @@
             this.bagMace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bagMace.TabIndex = 14;
             this.bagMace.TabStop = false;
+            this.bagMace.Visible = false;
             this.bagMace.Click += new System.EventHandler(this.bagMace_Click);
             // 
             // bagBow
             // 
             this.bagBow.BackColor = System.Drawing.Color.Transparent;
-            this.bagBow.Enabled = false;
             this.bagBow.Image = global::Laboratorio2.Properties.Resources.bow;
             this.bagBow.Location = new System.Drawing.Point(192, 325);
             this.bagBow.Name = "bagBow";
@@ -343,6 +340,7 @@
             this.bagBow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bagBow.TabIndex = 11;
             this.bagBow.TabStop = false;
+            this.bagBow.Visible = false;
             this.bagBow.Click += new System.EventHandler(this.bagBow_Click);
             // 
             // label1
@@ -445,6 +443,21 @@
             this.ataqueAcima.UseVisualStyleBackColor = true;
             this.ataqueAcima.Click += new System.EventHandler(this.ataqueAcima_Click);
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(27, 325);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 70);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Itens";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,6 +465,7 @@
             this.BackgroundImage = global::Laboratorio2.Properties.Resources.dungeon600x400;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(785, 404);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.ataqueAbaixo);
             this.Controls.Add(this.ataqueEsquerda);
             this.Controls.Add(this.ataqueDireita);
@@ -477,7 +491,10 @@
             this.Controls.Add(this.picBow);
             this.Controls.Add(this.picSword);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dungeon";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picJogador)).EndInit();
@@ -534,6 +551,7 @@
         private System.Windows.Forms.Label vidaFantasma;
         private System.Windows.Forms.Label vidaMorcego;
         private System.Windows.Forms.Label vidaJogador;
+        private System.Windows.Forms.Label label7;
     }
 }
 
