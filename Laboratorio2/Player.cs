@@ -59,7 +59,7 @@ namespace Laboratorio2
                 //verifica se tem uma weapon por perto e se possivel pega ela
                 //se waepon no raio de 1 pode ser pega
 
-                if (game.WeaponInRoom.Nearby(location, 20))
+                if (game.WeaponInRoom.Nearby(location, 30))
                 {
                     game.WeaponInRoom.PickUpWeapon();
                     inventory.Add(game.WeaponInRoom);

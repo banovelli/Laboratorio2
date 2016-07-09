@@ -74,12 +74,13 @@ namespace Laboratorio2
         public void NewLevel(Random random)
         {
             level++;
-            switch (level)
+            switch (1)
             {
                 case 1:
                     Enemies = new List<Enemy>();
                     Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
-                    WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    if (!CheckPlayerInventory("Sword"))
+                        WeaponInRoom = new Sword(this, GetRandomLocation(random));
                     break;
                 case 2:
                     Enemies = new List<Enemy>();
