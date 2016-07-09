@@ -15,6 +15,23 @@ namespace Laboratorio2
         public override string Name { get { return "Bow"; } }
         public override void Attack(Direction direction, Random random)
         {
+            int radius = 90;
+            int damage = 1;
+            switch (direction)
+            {
+                case Direction.Up:
+                    DamageEnemy(Direction.Up, radius, damage, random);
+                    break;
+                case Direction.Left:
+                    DamageEnemy(Direction.Up, radius, damage, random);
+                    break;
+                case Direction.Right:
+                    DamageEnemy(Direction.Up, radius, damage, random);
+                    break;
+                case Direction.Down:
+                    DamageEnemy(Direction.Down, radius, damage, random);
+                    break;
+            }
             //to do
             //raio 30
             // 1 de dano

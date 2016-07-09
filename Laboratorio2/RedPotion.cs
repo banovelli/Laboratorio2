@@ -12,7 +12,7 @@ namespace Laboratorio2
         public RedPotion(Game game, Point location)
         : base(game,location){ }
 
-        public override string Name { get { return "Red potion"; } }
+        public override string Name { get { return "RedPotion"; } }
 
         public override void Attack(Direction direction, Random random)
         {

@@ -155,6 +155,11 @@ namespace Laboratorio2
 
         public void UpdateCharacteres()
         {
+            if (game.Enemies.Count < 1)
+            {
+                MessageBox.Show("Você derrotou todos os inimigos do jogo!!! ", "WINNER");
+
+            }
             picJogador.Location = game.PlayerLocation;
             vidaJogador.Text = game.PlayerHitPoints.ToString();
 

@@ -64,6 +64,28 @@ namespace Laboratorio2
             return newLocation;
         }
 
+        public Direction DirecaoJogador(Point location, Point target)
+        {
+            Direction direcao;
+            int diffX = location.X - target.X;
+            int diffY = location.Y - target.Y;
+            if (Math.Abs(diffX) >= Math.Abs(diffY))
+            {
+                if (diffX >= 0)
+                    direcao = Direction.Left;
+                else
+                    direcao = Direction.Right;
+            }
+            else{
+                if (diffY >= 0)
+                    direcao = Direction.Up;
+                else
+                    direcao = Direction.Down;
+
+            }
+            return direcao;
+        }
+
         public enum Direction{
             Up,
             Down,
