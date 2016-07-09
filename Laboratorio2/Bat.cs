@@ -18,7 +18,7 @@ namespace Laboratorio2
             if (!Dead)
             {
                 //50% de chance de mover ao jogador ou dir aleatoria
-                int mover = random.Next(1, 2);
+                int mover = random.Next(1, 3);
                 Direction direcao;
                 if (mover == 1)//mover em direcao ao jogador
                 {

@@ -19,7 +19,7 @@ namespace Laboratorio2
         {
             InitializeComponent();
 
-            game = new Game(new Rectangle(78, 57, 420, 155));
+            game = new Game(new Rectangle(78, 57, 520, 240));
             game.NewLevel(random);
             UpdateCharacteres();
             
@@ -27,7 +27,7 @@ namespace Laboratorio2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            game = new Game(new Rectangle(78, 57, 420, 155));
+            game = new Game(new Rectangle(78, 57, 520, 240));
             game.NewLevel(random);
             UpdateCharacteres();
         }
