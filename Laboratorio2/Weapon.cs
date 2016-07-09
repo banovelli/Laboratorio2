@@ -9,7 +9,7 @@ namespace Laboratorio2
 {
     public abstract class Weapon: Mover
     {
-        protected Game game;
+        
         private bool pickedup;
         public bool PickedUp{get{return pickedup;}}
 
@@ -30,7 +30,7 @@ namespace Laboratorio2
             {
                 foreach (Enemy enemy in game.Enemies)
                 {
-                    if (Nearby(enemy.Location, radius))//if (Nearby(enemy.Location, target, radius))
+                   if (Nearby(enemy.Location, target, radius))
                     {
                         enemy.Hit(damage, random);
                         return true;

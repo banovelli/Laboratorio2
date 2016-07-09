@@ -29,6 +29,15 @@ namespace Laboratorio2
             return false;
         }
 
+        public bool Nearby(Point locationToCheck, Point target, int distance)
+        {
+            if (Math.Abs(target.X - locationToCheck.X) < distance &&
+                (Math.Abs(target.Y - locationToCheck.Y) < distance))
+                return true;
+
+            return false;
+        }
+
         public Point Move(Direction direction, Rectangle bounderies)
         {
             Point newLocation = location;
