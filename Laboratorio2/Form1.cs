@@ -17,10 +17,6 @@ namespace Laboratorio2
 
         public Form1()
         {
-            this.KeyPreview = true;
-            this.KeyPress +=
-                new KeyPressEventHandler(Form1_KeyPress);
-
             InitializeComponent();
 
             game = new Game(new Rectangle(89, 71, 420, 159));
@@ -344,24 +340,40 @@ namespace Laboratorio2
             }
         }
 
-        void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar >= 48 && e.KeyChar <= 57)
-            {
-            }
-        }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.Left)
-            {
-                MessageBox.Show("You pressed Left arrow key");
-                return true;
+            switch (keyData){
+                case  Keys.Left:
+                    game.Move(Mover.Direction.Left, random);
+                    break;
+                case Keys.Up:
+                    game.Move(Mover.Direction.Up, random);
+                    break;
+                case Keys.Right:
+                    game.Move(Mover.Direction.Right, random);
+                    break;
+                case Keys.Down:
+                    game.Move(Mover.Direction.Down, random);
+                    break;
+                case Keys.W:
+                     game.Attack(Mover.Direction.Up, random);
+                     resetButtons(); 
+                    break;
+                case Keys.D:
+                    game.Attack(Mover.Direction.Right, random);
+                    break;
+                case Keys.A:
+                    game.Attack(Mover.Direction.Left, random);
+                    break;
+                case Keys.S:
+                    game.Attack(Mover.Direction.Down, random);
+                    break;
+                default :
+                    break;
             }
-            return base.ProcessCmdKey(ref msg, keyData);
+            UpdateCharacteres();
+
+           return base.ProcessCmdKey(ref msg, keyData);
         }
-
-
-
     }
 }

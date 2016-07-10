@@ -356,44 +356,48 @@
             // moveAcima
             // 
             this.moveAcima.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.moveAcima.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moveAcima.Location = new System.Drawing.Point(643, 25);
             this.moveAcima.Name = "moveAcima";
             this.moveAcima.Size = new System.Drawing.Size(75, 23);
             this.moveAcima.TabIndex = 16;
-            this.moveAcima.Text = "Acima";
+            this.moveAcima.Text = "Acima(SU)";
             this.moveAcima.UseVisualStyleBackColor = true;
             this.moveAcima.Click += new System.EventHandler(this.moveAcima_Click);
             // 
             // moveDireita
             // 
             this.moveDireita.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.moveDireita.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moveDireita.Location = new System.Drawing.Point(690, 53);
             this.moveDireita.Name = "moveDireita";
             this.moveDireita.Size = new System.Drawing.Size(75, 23);
             this.moveDireita.TabIndex = 17;
-            this.moveDireita.Text = "Direita";
+            this.moveDireita.Text = "Direita(SR)";
             this.moveDireita.UseVisualStyleBackColor = true;
             this.moveDireita.Click += new System.EventHandler(this.moveDireita_Click);
             // 
             // moveEsquerda
             // 
             this.moveEsquerda.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.moveEsquerda.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moveEsquerda.Location = new System.Drawing.Point(609, 54);
             this.moveEsquerda.Name = "moveEsquerda";
             this.moveEsquerda.Size = new System.Drawing.Size(75, 23);
             this.moveEsquerda.TabIndex = 18;
-            this.moveEsquerda.Text = "Esquerda";
+            this.moveEsquerda.Text = "Esquerda(SL)";
             this.moveEsquerda.UseVisualStyleBackColor = true;
             this.moveEsquerda.Click += new System.EventHandler(this.moveEsquerda_Click);
             // 
             // moveAbaixo
             // 
             this.moveAbaixo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.moveAbaixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moveAbaixo.Location = new System.Drawing.Point(643, 83);
             this.moveAbaixo.Name = "moveAbaixo";
             this.moveAbaixo.Size = new System.Drawing.Size(75, 23);
             this.moveAbaixo.TabIndex = 19;
-            this.moveAbaixo.Text = "Abaixo";
+            this.moveAbaixo.Text = "Abaixo(SD)";
             this.moveAbaixo.UseVisualStyleBackColor = true;
             this.moveAbaixo.Click += new System.EventHandler(this.moveAbaixo_Click);
             // 
@@ -414,7 +418,7 @@
             this.ataqueAbaixo.Name = "ataqueAbaixo";
             this.ataqueAbaixo.Size = new System.Drawing.Size(75, 23);
             this.ataqueAbaixo.TabIndex = 24;
-            this.ataqueAbaixo.Text = "Abaixo";
+            this.ataqueAbaixo.Text = "Abaixo(S)";
             this.ataqueAbaixo.UseVisualStyleBackColor = true;
             this.ataqueAbaixo.Click += new System.EventHandler(this.ataqueAbaixo_Click);
             // 
@@ -425,7 +429,7 @@
             this.ataqueEsquerda.Name = "ataqueEsquerda";
             this.ataqueEsquerda.Size = new System.Drawing.Size(75, 23);
             this.ataqueEsquerda.TabIndex = 23;
-            this.ataqueEsquerda.Text = "Esquerda";
+            this.ataqueEsquerda.Text = "Esquerda(A)";
             this.ataqueEsquerda.UseVisualStyleBackColor = true;
             this.ataqueEsquerda.Click += new System.EventHandler(this.ataqueEsquerda_Click);
             // 
@@ -436,7 +440,7 @@
             this.ataqueDireita.Name = "ataqueDireita";
             this.ataqueDireita.Size = new System.Drawing.Size(75, 23);
             this.ataqueDireita.TabIndex = 22;
-            this.ataqueDireita.Text = "Direita";
+            this.ataqueDireita.Text = "Direita(D)";
             this.ataqueDireita.UseVisualStyleBackColor = true;
             this.ataqueDireita.Click += new System.EventHandler(this.ataqueDireita_Click);
             // 
@@ -447,7 +451,7 @@
             this.ataqueAcima.Name = "ataqueAcima";
             this.ataqueAcima.Size = new System.Drawing.Size(75, 23);
             this.ataqueAcima.TabIndex = 21;
-            this.ataqueAcima.Text = "Acima";
+            this.ataqueAcima.Text = "Acima(W)";
             this.ataqueAcima.UseVisualStyleBackColor = true;
             this.ataqueAcima.Click += new System.EventHandler(this.ataqueAcima_Click);
             // 
