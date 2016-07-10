@@ -43,7 +43,7 @@ namespace Laboratorio2
                 }
                 base.location =  Move(direcao, game.Bounderies);
 
-                if (Nearby(base.location, game.PlayerLocation, 1))
+                if (Nearby(base.location, game.PlayerLocation, 16))
                 {
                     game.HitPlayer(2, random);
                 }

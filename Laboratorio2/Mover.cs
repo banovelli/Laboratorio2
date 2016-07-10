@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Laboratorio2
 {
+    //um problema pra resolver depois é considerar o ceontro do player ou enemy ao inves do top left, e assim calcular qual seria a sua posicao para o ataque.....
     public abstract class Mover
     {
         private const int MoveInterval = 10;

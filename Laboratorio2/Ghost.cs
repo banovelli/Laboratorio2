@@ -29,7 +29,7 @@ namespace Laboratorio2
                 {
                     direcao = DirecaoJogador(location, game.PlayerLocation);
                     base.location = Move(direcao, game.Bounderies);
-                    if (Nearby(base.location, game.PlayerLocation, 1))
+                    if (Nearby(base.location, game.PlayerLocation, 16))
                     {
                         game.HitPlayer(3, random);
                     }
