@@ -355,6 +355,7 @@
             // 
             // moveAcima
             // 
+            this.moveAcima.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.moveAcima.Location = new System.Drawing.Point(643, 25);
             this.moveAcima.Name = "moveAcima";
             this.moveAcima.Size = new System.Drawing.Size(75, 23);
@@ -365,6 +366,7 @@
             // 
             // moveDireita
             // 
+            this.moveDireita.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.moveDireita.Location = new System.Drawing.Point(690, 53);
             this.moveDireita.Name = "moveDireita";
             this.moveDireita.Size = new System.Drawing.Size(75, 23);
@@ -375,6 +377,7 @@
             // 
             // moveEsquerda
             // 
+            this.moveEsquerda.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.moveEsquerda.Location = new System.Drawing.Point(609, 54);
             this.moveEsquerda.Name = "moveEsquerda";
             this.moveEsquerda.Size = new System.Drawing.Size(75, 23);
@@ -385,6 +388,7 @@
             // 
             // moveAbaixo
             // 
+            this.moveAbaixo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.moveAbaixo.Location = new System.Drawing.Point(643, 83);
             this.moveAbaixo.Name = "moveAbaixo";
             this.moveAbaixo.Size = new System.Drawing.Size(75, 23);
@@ -405,6 +409,7 @@
             // 
             // ataqueAbaixo
             // 
+            this.ataqueAbaixo.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.ataqueAbaixo.Location = new System.Drawing.Point(643, 212);
             this.ataqueAbaixo.Name = "ataqueAbaixo";
             this.ataqueAbaixo.Size = new System.Drawing.Size(75, 23);
@@ -415,6 +420,7 @@
             // 
             // ataqueEsquerda
             // 
+            this.ataqueEsquerda.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.ataqueEsquerda.Location = new System.Drawing.Point(609, 183);
             this.ataqueEsquerda.Name = "ataqueEsquerda";
             this.ataqueEsquerda.Size = new System.Drawing.Size(75, 23);
@@ -425,6 +431,7 @@
             // 
             // ataqueDireita
             // 
+            this.ataqueDireita.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.ataqueDireita.Location = new System.Drawing.Point(690, 182);
             this.ataqueDireita.Name = "ataqueDireita";
             this.ataqueDireita.Size = new System.Drawing.Size(75, 23);
@@ -435,6 +442,7 @@
             // 
             // ataqueAcima
             // 
+            this.ataqueAcima.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.ataqueAcima.Location = new System.Drawing.Point(643, 154);
             this.ataqueAcima.Name = "ataqueAcima";
             this.ataqueAcima.Size = new System.Drawing.Size(75, 23);

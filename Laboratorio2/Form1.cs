@@ -17,6 +17,10 @@ namespace Laboratorio2
 
         public Form1()
         {
+            this.KeyPreview = true;
+            this.KeyPress +=
+                new KeyPressEventHandler(Form1_KeyPress);
+
             InitializeComponent();
 
             game = new Game(new Rectangle(89, 71, 420, 159));
@@ -33,8 +37,6 @@ namespace Laboratorio2
         }
 
        
-
-
         /// <summary>
         /// "Armas selecionas"
         /// </summary>
@@ -172,21 +174,9 @@ namespace Laboratorio2
             UpdateCharacteres();
         }
 
-
-        public void UpdateCharacteres()
+        public int updateEnemies()
         {
-            if (game.Enemies.Count < 1)
-            {
-                MessageBox.Show("Você derrotou todos os inimigos do jogo!!! ", "WINNER");
-                Application.Exit();
-            }
-            picJogador.Location = game.PlayerLocation;
-            vidaJogador.Text = game.PlayerHitPoints.ToString();
-
             int enemiesShown = 0;
-
-            //algum codigo
-
 
             foreach (Enemy enemy in game.Enemies)
             {
@@ -236,8 +226,62 @@ namespace Laboratorio2
                     }
                 }
             }//fim foreach
+            return  enemiesShown;
+        }
 
+        public void controleInventario()
+        {
+            bagSword.Visible = false;
+            bagBow.Visible = false;
+            bagRedPotion.Visible = false;
+            bagBluePotion.Visible = false;
+            bagMace.Visible = false;
+            if (game.CheckPlayerInventory("Sword"))
+                bagSword.Visible = true;
+            if (game.CheckPlayerInventory("Bow"))
+                bagBow.Visible = true;
+            if (game.CheckPlayerInventory("Mace"))
+                bagMace.Visible = true;
+            if (game.CheckPlayerInventory("RedPotion"))
+                bagRedPotion.Visible = true;
+            if (game.CheckPlayerInventory("BluePotion"))
+                bagBluePotion.Visible = true;
+        }
 
+        public void UpdateCharacteres()
+        {
+            if (game.Enemies.Count < 1)
+            {
+                MessageBox.Show("Você derrotou todos os inimigos do jogo!!! ", "WINNER");
+                Application.Exit();
+            }
+            picJogador.Location = game.PlayerLocation;
+            vidaJogador.Text = game.PlayerHitPoints.ToString();
+
+            int enemiesShown = updateEnemies();
+            
+            controleInventario();
+
+            BorderWeaponSelected();
+
+            controleArma();
+
+            if (game.PlayerHitPoints <= 0)
+            {
+                MessageBox.Show("Você morreu!", "Ha ha");
+                Application.Exit();
+            }
+            if (enemiesShown < 1)
+            {
+                MessageBox.Show("Você derrotou todos os inimigos desse nível", "Continue assim.");
+                game.NewLevel(random);
+                UpdateCharacteres();
+            }
+
+        }
+
+        private void controleArma()
+        {
             picSword.Visible = false;
             picBow.Visible = false;
             picRedPotion.Visible = false;
@@ -263,44 +307,9 @@ namespace Laboratorio2
                     break;
             }
             weaponControl.Visible = true;
-
-
-
-            bagSword.Visible = false;
-            bagBow.Visible = false;
-            bagRedPotion.Visible = false;
-            bagBluePotion.Visible = false;
-            bagMace.Visible = false;
-            if(game.CheckPlayerInventory("Sword"))
-                bagSword.Visible = true;
-            if (game.CheckPlayerInventory("Bow"))
-                bagBow.Visible = true;
-            if (game.CheckPlayerInventory("Mace"))
-                bagMace.Visible = true;
-            if (game.CheckPlayerInventory("RedPotion"))
-                bagRedPotion.Visible = true;
-            if (game.CheckPlayerInventory("BluePotion"))
-                bagBluePotion.Visible = true;
-
-            BorderWeaponSelected();
-
+            
             weaponControl.Location = game.WeaponInRoom.Location;
             weaponControl.Visible = (game.WeaponInRoom.PickedUp) ? false : true;
-
-            
-
-            if (game.PlayerHitPoints <= 0)
-            {
-                MessageBox.Show("Você morreu!", "Ha ha");
-                Application.Exit();
-            }
-            if (enemiesShown < 1)
-            {
-                MessageBox.Show("Você derrotou todos os inimigos desse nível", "Continue assim.");
-                game.NewLevel(random);
-                UpdateCharacteres();
-            }
-
         }
 
         private void BorderWeaponSelected()
@@ -335,6 +344,22 @@ namespace Laboratorio2
             }
         }
 
+        void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+            {
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Left)
+            {
+                MessageBox.Show("You pressed Left arrow key");
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
 
 

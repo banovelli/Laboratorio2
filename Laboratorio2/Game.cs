@@ -40,8 +40,6 @@ namespace Laboratorio2
             player.Equip(weaponName);
         }
 
-     
-
         public bool CheckPlayerInventory(string weaponName)
         {
             return player.Weapons.Contains(weaponName);
@@ -72,79 +70,103 @@ namespace Laboratorio2
             return new Point(random.Next(bounderies.Left, bounderies.Right), random.Next(bounderies.Top, bounderies.Bottom));
         }
 
+        private void addWeaponInventory(string weaponName, Random random)
+        {
+            if (!CheckPlayerInventory(weaponName))
+            {
+                switch (weaponName)
+                {
+                    case "Sword":
+                        WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                        break;
+                    case "Bow":
+                        WeaponInRoom = new Bow(this, GetRandomLocation(random));
+                        break;
+                    case "Mace":
+                        WeaponInRoom = new Mace(this, GetRandomLocation(random));
+                        break;
+                    case "RedPotion":
+                        WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
+                        break;
+                    case "BluePotion":
+                        WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
+                        break;
+                }
+            }                
+        }
+
+        private Enemy addEnemies(string enemieName, Random random)
+        {
+            Enemy enemy;
+            switch (enemieName)
+            {
+                case "Ghost":
+                    enemy = new Ghost(this, GetRandomLocation(random), bounderies);
+                    break;
+                case "Ghoul":
+                    enemy = new Ghoul(this, GetRandomLocation(random), bounderies);
+                    break;
+                default:
+                    enemy = new Bat(this, GetRandomLocation(random), bounderies);
+                    break;
+            }
+            return enemy;
+        }
+
         public void NewLevel(Random random)
         {
             level++;
+            Enemies = new List<Enemy>();
             switch (level)
             {
                 case 1:
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
-                    if (!CheckPlayerInventory("Sword"))
-                        WeaponInRoom = new Sword(this, GetRandomLocation(random));
+                    Enemies.Add(addEnemies("Bat", random));
+                    addWeaponInventory("Sword", random);
                     break;
                 case 2:
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random), bounderies));
-                    if (!CheckPlayerInventory("Sword"))
-                        WeaponInRoom = new Sword(this, GetRandomLocation(random));
-                    if (!CheckPlayerInventory("BluePotion"))
-                        WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
+                    Enemies.Add(addEnemies("Ghost", random));
+                    addWeaponInventory("BluePotion", random);
                     break;
                 case 3:
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), bounderies));
+                    Enemies.Add(addEnemies("Ghoul", random));
+                    addWeaponInventory("Bow", random);
+                    break;
+
+                case 4://4 morcego , fantasma  arco  ou entao pocao azul                   
+                    Enemies.Add(addEnemies("Bat", random));
+                    Enemies.Add(addEnemies("Ghost", random));
                     if (!CheckPlayerInventory("Bow"))
-                        WeaponInRoom = new Bow(this, GetRandomLocation(random));
+                        addWeaponInventory("Bow", random);
+                    else
+                        addWeaponInventory("BluePotion", random);
                     break;
 
-                case 4://4 morcego , fantasma  arco  ou entao pocao azul
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random), bounderies));
-                    if (!CheckPlayerInventory("Bow"))
-                        WeaponInRoom = new Bow(this, GetRandomLocation(random));
-                    else if (!CheckPlayerInventory("BluePotion"))
-                        WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
+                case 5: //5 morcego zumbi pocao vermelha                   
+                    Enemies.Add(addEnemies("Bat", random));
+                    Enemies.Add(addEnemies("Ghost", random));
+                    addWeaponInventory("RedPotion", random);
                     break;
 
-                case 5: //5 morcego zumbi pocao vermelha
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), bounderies));
-                    if (!CheckPlayerInventory("RedPotion"))
-                        WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
+                case 6:             //6 fantasma zumbi mace                   
+                    Enemies.Add(addEnemies("Ghost", random));
+                    Enemies.Add(addEnemies("Ghoul", random));
+                    addWeaponInventory("Mace", random);
                     break;
 
-                case 6:             //6 fantasma zumbi mace
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random), bounderies));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), bounderies));
+                case 7: //7 morcego,fantasm,zumbi mace ou entao pocao vermelha                   
+                    Enemies.Add(addEnemies("Bat", random));
+                    Enemies.Add(addEnemies("Ghost", random));
+                    Enemies.Add(addEnemies("Ghoul", random));
                     if (!CheckPlayerInventory("Mace"))
-                        WeaponInRoom = new Mace(this, GetRandomLocation(random));
-                    break;
-
-                case 7: //7 morcego,fantasm,zumbi mace ou entao pocao vermelha
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random), bounderies));
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random), bounderies));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), bounderies));
-                    if (!CheckPlayerInventory("Mace"))
-                        WeaponInRoom = new Mace(this, GetRandomLocation(random));
+                        addWeaponInventory("Mace", random);
                     else if (!CheckPlayerInventory("RedPotion"))
-                        WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
+                        addWeaponInventory("RedPotion", random);
                     break;
 
                 case 8://8 n/a --> terminei o jogo com o apllication.exit
-                    Enemies = new List<Enemy>();
                     break;
 
             }
-           
-            
-            
-            
-            
         }
     }
 }
