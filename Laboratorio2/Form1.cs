@@ -19,7 +19,7 @@ namespace Laboratorio2
         {
             InitializeComponent();
 
-            game = new Game(new Rectangle(78, 57, 520, 240));
+            game = new Game(new Rectangle(89, 71, 420, 159));
             game.NewLevel(random);
             UpdateCharacteres();
             
@@ -27,7 +27,7 @@ namespace Laboratorio2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            game = new Game(new Rectangle(78, 57, 520, 240));
+            game = new Game(new Rectangle(89, 71, 420, 159));
             game.NewLevel(random);
             UpdateCharacteres();
         }
@@ -178,7 +178,7 @@ namespace Laboratorio2
             if (game.Enemies.Count < 1)
             {
                 MessageBox.Show("Você derrotou todos os inimigos do jogo!!! ", "WINNER");
-
+                Application.Exit();
             }
             picJogador.Location = game.PlayerLocation;
             vidaJogador.Text = game.PlayerHitPoints.ToString();

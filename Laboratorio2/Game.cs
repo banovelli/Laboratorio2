@@ -66,9 +66,10 @@ namespace Laboratorio2
 
         private Point GetRandomLocation(Random random)
         {
-            return new Point (bounderies.Left +
-                random.Next(bounderies.Right/10 - bounderies.Left/10) * 10,
-                random.Next(bounderies.Bottom/10 - bounderies.Top/10)*10);
+          //  return new Point (bounderies.Left +
+          //      random.Next(bounderies.Right/10 - bounderies.Left/10) * 10,
+          //      random.Next(bounderies.Bottom/10 - bounderies.Top/10)*10);
+            return new Point(random.Next(bounderies.Left, bounderies.Right), random.Next(bounderies.Top, bounderies.Bottom));
         }
 
         public void NewLevel(Random random)
